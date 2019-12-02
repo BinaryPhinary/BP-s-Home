@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo "Welcome! Please identify what mathematical operation you would like to perform.\n  Addition (a), Subtraction (s), Division (d), Multiplication (m)"
+
+read operand
+
+#if [[ $operand=="a" ]] ; then
+#	let $operand=$(addition)
+#	echo "$operand"
+#else
+#	echo "Invalid entry"
+#fi
+
+#echo "your operand is $operand"
+
+echo "Please enter two intergers that you would like to perform $operand on"
+
+read num1 num2
+
+#echo "Your two numbers are $num1 and  $num2"
+
+if [[ $num1 =~ ^-?[0-9]+$ ]] && [[ $num2 =~ ^-?[0-9]+$ ]] && [[ $operand == 'a' ]]  ; then
+	echo $(( $num1 + $num2 ))
+
+elif [[ $num1 =~ ^-?[0-9]+$ ]] && [[ $num2 =~ ^-?[0-9]+$ ]] && [[ $operand == 's' ]] ; then
+	echo "Your solution is $(( $num1 - $num2 )) "
+
+elif [[ $num1 =~  ^-?[0-9]+$ ]] && [[ $num2 =~ ^-?[0-9]+$ ]] && [[ $operand == 'd' ]] ; then
+	echo "your solution is $(( $num1 / $num2 )) "
+
+elif [[ $num1 =~ ^-?[0-9]+$ ]] && [[ $num2 =~ ^-?[0-9]+$ ]] && [[ $operand == 'm' ]] ; then
+	echo "Your solution is $(( $num1 * $num2 ))"
+
+else
+
+echo "You have not entered valid integer(s)"
+
+fi 

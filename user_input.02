@@ -1,0 +1,38 @@
+#!/bin/bash
+
+
+# Create the functions to be called
+
+function_one () {
+	echo 'This is the number one function'
+}
+
+function_two () {
+	echo 'This is the number two function'
+}
+
+function_three () {
+	echo 'This is the number three function'
+}
+
+echo "Please enter a 1, 2 or 3"
+read usernum
+
+
+if [ $usernum -eq 1 ] 
+then function_one
+
+else
+	if [ $usernum -eq 2 ]
+	then function_two
+else
+		if [ $usernum -eq 3 ]
+		then function_three
+else
+			if [ $usernum -gt 3 ]
+			then
+				echo 'This is not a valid entry'
+			fi
+		fi
+	fi
+fi 

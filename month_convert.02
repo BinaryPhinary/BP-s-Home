@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Sadly I had to look up the first line - I did not know the syntax. I had a similar syntax from another script but it did not work here 
+month=$1
+
+case "$month" in
+
+	''|*[!0-9]*)		echo "You have entered an invalid value! It must be the numerical value of a month!" ;;
+	"12")			echo "Your month is December" ;;
+	"11")			echo "Your month is November" ;;
+	"10")			echo "Your month is October"  ;;
+	"9")			echo "Your month is September";;
+	"8")			echo "Your month is August"   ;;
+	"7")			echo "Your month is July"     ;;
+	"6")			echo "Your month is June"     ;;
+	"5")			echo "Your month is May"      ;;
+	"4")			echo "Your month is April"    ;;
+	"3")			echo "Your month is March"    ;;
+	"2")			echo "Your month is February" ;;
+	"1")			echo "Your month is January"  ;;
+	*)			echo "Your entry must be between 1-12!" ;;
+esac
+exit 0
+
+

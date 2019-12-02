@@ -1,0 +1,52 @@
+#!/bin/bash
+
+[[ $# -lt 2 ]] && \
+	echo "Please enter two different strings as argumenmts" && exit 1
+
+str1=$1
+str2=$2
+length1=${#str1}
+length2=${#str2}
+
+#echo "The legnth of $str1 is $length"
+
+#-------------------------------------------------------
+# Evaluation of the strings
+#------------------------------------------------------
+
+if [[ $length1 -ge 1 ]] && [[ $length2 -ge 1 ]] ; then
+	echo "Congrats! String 1 contains a non-zero value and String 2 also contains a non-zero value!"
+fi
+
+
+echo "String 1 is $length1 characters and String 2 is $length2 characters"
+
+if [[ $length1 -gt $length2 ]] ; then
+	echo "String 1 is of greater length than String 2"
+elif [[ $length2 -gt $length1 ]] ; then
+	echo "String 2 is of greater length than String 1"
+
+elif [[ $length1 -eq $length2 ]] ; then
+	echo "String 1 and String 2 are of equal length, hence no clear winner here"
+
+fi
+
+if [[ $str1 = $str2 ]] ; then
+	echo "String 1 is the same as String 2 - what are you trying to pull?!"
+else
+	echo "String 1 and String 2 are different strings - good job!"
+fi
+
+
+
+# The below would be a faster route to determine non-0 value
+# however - since we need the total length of each string 
+# to compare anyways - there is no reason to take this short
+# cut and then have to acquire more data later - hence
+# it has been commented out
+
+#if ! [[ -n $str1 ]] ; then
+#	echo "Your entry is not valid - it has 0 length!"
+#fi
+
+
