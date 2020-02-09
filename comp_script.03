@@ -29,6 +29,6 @@ cat file?
 
 cd $ORIG_DIR
 rm -rf $userdir
-echo "Goodbye my failure!"
+echo "Goodbye!"
 
 
