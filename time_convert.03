@@ -6,15 +6,6 @@
 echo "Please enter the time you wish to convert to military time in the following format hh:mm AM/PM"
 read time
 
-
-
-#timearray=($time)
-
-#echo ${timearray[0]}
-#echo ${timearray[1]}
-#echo ${timearray[-1]}
-
-
 hours=${time//[[:alpha:]]/}
 AMPM=${time//[0-9]/}
 #houronly=${hours:3}
@@ -27,9 +18,6 @@ IFS=':'
 read -r  houronly mins <<< $hours
 
 read -r AP <<< $AMPM
-
-#echo $houronly
-
 
 if  ! [[ "$houronly" =~ ^[0-9]+$ ]] && [[ $AMPM != *AM* ]] || [[ $AMPM != *PM* ]] ; then
 #	{ echo "This is an invalid entry.  Run the script to try again." ; exit 1;}
@@ -49,26 +37,6 @@ elif [[ $AP = *AM* ]] ; then
 fi
 
 
-#echo "$AP"
-
-#echo "$AP" | sed 's/[[:space:]]//g'
-
-#echo $AAP
-
-#echo $AP
-
-#IFS=$' \t\n' read a b c <<< $time
-
-#echo $a
-#echo $b
-#echo $c
-
-#houronly=$(cut -d ':' -f 2 <<< "$hours")
-
-#hour=${$hours:1}
-
-#echo "The hour value is now $houronly"
-
 if [[ $AP = *AM* ]] && [[ $houronly = 12 ]] ; then
 	militaryhour=00
 	echo "The time is $militaryhour:$mins hundred hours in military time"
@@ -80,21 +48,6 @@ elif [[ $AP = *PM* ]] ; then
 	militaryhour=$(($houronly+12))
 	echo "The time is $militaryhour:$mins hundred hours in military time"
 fi
-
-#if [[ $AP = *PM* ]] ; then
-#	militaryhour=$(($houronly+12))
-#	echo $militaryhour
-#fi
-
-
-#if [[ $time =~ ^[[:alnum:]]*$ ]] && [[ $time =~ ^[[:digit:]]+$ ]] ; then
-#	echo ok
-#fi
-
-#case "$time" in
-#	*AM*|*am*|*Am*|*aM*)	echo "The time is $hours hundred hours in military time" ;;
-#	*PM*|*pm*|*Pm|*pM*)	echo "The time is $militaryhour:$mins in military time" ;;
-#esac
 
 
 
